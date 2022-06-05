@@ -141,11 +141,9 @@ void loop()
     BLEDevice peripheral;
 
     Serial.println("- Discovering peripheral device...");
-    do
-    {
-      BLE.scanForUuid(ESP32uuid);
-      peripheral = BLE.available();
-    } while (!peripheral);
+    
+    BLE.scanForUuid(ESP32uuid);
+    peripheral = BLE.available();
     
     if (peripheral) {
       Serial.println("* Peripheral device found!");
